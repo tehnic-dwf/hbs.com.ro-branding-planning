@@ -75,14 +75,23 @@ src/components/
   Reviews.tsx       FAQ.tsx  Footer.tsx
 ```
 
-## Ce îmi mai trebuie de la tine
+## Decizii confirmate
 
-1. **Logo HBS** – fișier, sau îl preiau de pe hbs.com.ro?
-2. **Culori și font** – documentele nu conțin identitate vizuală. Păstrăm paleta actuală de pe site (portocaliu/roșu pe alb) sau vrei o direcție nouă?
-3. **Fotografii reale** – documentul cere explicit foto de șantier pe etape, cu simptom vs. cauză. Am acces doar la imaginile publice de pe site. Ai un set mai bun?
-4. **Cifra de poziționare** – documentul semnalează inconsistența 60% / 75% / 80% / 90%. Ce cifră unică folosim peste tot?
-5. **Intervalul de preț de publicat** – documentele conțin ~425 EUR/mp la 10 mp și ~360 EUR/mp la 20 mp. Le afișăm public sau doar structura de cost fără cifre?
-6. **Numărul de WhatsApp** – același `0722 750 380`?
-7. **Numele repo-ului GitHub** – determină `base` path-ul pentru Pages.
+1. **Logo** – îl extrag de pe hbs.com.ro și îl folosesc în header, burger menu și favicon.
+2. **Culori și font** – păstrez identitatea actuală: portocaliu/roșu HBS (#E1431B) pe fundal alb, gri închis pentru text, Open Sans / Roboto ca familie tipografică.
+3. **Fotografii** – preiau imaginile publice de pe site (galerii terase circulabile, șantiere, echipă) și le mapez pe secțiunile „simptom" / „cauză" / „rezultat". Unde nu există foto potrivită, folosesc o ilustrație tehnică simplă, nu stock.
+4. **Cifra de poziționare** – folosesc **80%** peste tot: e mijlocul intervalului real din documente (80–90% din lucrări sunt refaceri), e conservatoare deci ușor de apărat, și e formulată ca „8 din 10 lucrări pe care le facem sunt reparații după alte firme".
+5. **Preț** – **nu afișăm cifre**. Secțiunea „Ce include prețul" explică doar structura de cost: ce e cost fix indiferent de suprafață (mobilizare, decopertare, uscare, primer, manoperă calificată), ce variază cu suprafața, și de ce 10 mp nu costă jumătate din 20 mp. Se termină cu „Îți trimitem un deviz pe cazul tău, după poze." Cifrele rămân pregătite pentru validarea cu clientul, într-un singur loc în cod, ușor de activat.
+6. **WhatsApp / telefon** – `0722 750 380`, cu mesaj precompletat diferit pe fiecare pagină.
 
-Pot începe și fără 1–3 (folosesc ce e public pe site și marchez ce trebuie înlocuit), dar 4, 5 și 6 sunt decizii de conținut pe care nu le pot lua eu.
+## Despre repo-ul GitHub
+
+Nu pot crea eu repository-ul – conectarea la GitHub se face din interfața Lovable (meniul `+` → GitHub → Connect project), pentru că necesită autorizarea ta pe contul GitHub. Propun ordinea:
+
+1. Construim prima iterație aici (homepage, pagina de serviciu, burger menu).
+2. O verifici în preview pe mobil.
+3. Conectezi GitHub din meniul `+` – se creează automat repo-ul cu tot codul.
+4. Adaug atunci workflow-ul GitHub Actions și setez `base` path-ul după numele exact al repo-ului.
+
+Pregătesc configurația de prerender din start, ca pasul 4 să fie doar o ajustare, nu o rescriere.
+
