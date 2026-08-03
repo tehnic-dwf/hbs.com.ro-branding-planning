@@ -1,10 +1,42 @@
 import { Phone, MessageCircle, Camera } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { contact, whatsappLink } from "@/lib/site";
 
+const GATE_ID = "cta-gate";
+
 export function StickyContactBar({ whatsappMessage }: { whatsappMessage: string }) {
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const gate = document.getElementById(GATE_ID);
+    if (!gate) {
+      setVisible(true);
+      return;
+    }
+
+    setVisible(false);
+    const update = () => {
+      const rect = gate.getBoundingClientRect();
+      // show only once the gate CTA has scrolled above the viewport
+      setVisible(rect.bottom <= 0);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [whatsappMessage]);
+
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/98 pb-[env(safe-area-inset-bottom)] backdrop-blur">
+    <div
+      aria-hidden={!visible}
+      className={`fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/98 pb-[env(safe-area-inset-bottom)] backdrop-blur transition-transform duration-300 ${
+        visible ? "translate-y-0" : "pointer-events-none translate-y-full"
+      }`}
+    >
       <div className="mx-auto grid max-w-5xl grid-cols-3 gap-2 px-3 py-2">
         <a
           href={contact.phoneHref}

@@ -96,6 +96,7 @@ function Index() {
           reparațiile „pe pată” nu țin.
         </p>
         <InlineCta
+          id="cta-gate"
           label="Nu ești sigur ce ai? Trimite o poză și îți spunem."
           whatsappMessage={whatsappMessages.home}
         />

@@ -32,9 +32,17 @@ export function SectionTitle({ kicker, title }: { kicker?: string; title: string
   );
 }
 
-export function InlineCta({ label, whatsappMessage }: { label: string; whatsappMessage: string }) {
+export function InlineCta({
+  label,
+  whatsappMessage,
+  id,
+}: {
+  label: string;
+  whatsappMessage: string;
+  id?: string;
+}) {
   return (
-    <div className="mt-6 rounded-lg border-2 border-primary/25 bg-accent p-4">
+    <div id={id} className="mt-6 rounded-lg border-2 border-primary/25 bg-accent p-4">
       <p className="font-display text-base font-bold text-foreground">{label}</p>
       <div className="mt-3 flex flex-col gap-2">
         <a
