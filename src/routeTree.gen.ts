@@ -10,33 +10,44 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as HidroizolatiiTeraseCirculabileRouteImport } from './routes/hidroizolatii-terase-circulabile'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HidroizolatiiTeraseCirculabileRoute =
+  HidroizolatiiTeraseCirculabileRouteImport.update({
+    id: '/hidroizolatii-terase-circulabile',
+    path: '/hidroizolatii-terase-circulabile',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/hidroizolatii-terase-circulabile': typeof HidroizolatiiTeraseCirculabileRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/hidroizolatii-terase-circulabile': typeof HidroizolatiiTeraseCirculabileRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/hidroizolatii-terase-circulabile': typeof HidroizolatiiTeraseCirculabileRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/hidroizolatii-terase-circulabile'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/hidroizolatii-terase-circulabile'
+  id: '__root__' | '/' | '/hidroizolatii-terase-circulabile'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  HidroizolatiiTeraseCirculabileRoute: typeof HidroizolatiiTeraseCirculabileRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +59,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hidroizolatii-terase-circulabile': {
+      id: '/hidroizolatii-terase-circulabile'
+      path: '/hidroizolatii-terase-circulabile'
+      fullPath: '/hidroizolatii-terase-circulabile'
+      preLoaderRoute: typeof HidroizolatiiTeraseCirculabileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  HidroizolatiiTeraseCirculabileRoute: HidroizolatiiTeraseCirculabileRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

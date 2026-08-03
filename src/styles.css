@@ -142,3 +142,52 @@
     color: var(--color-foreground);
   }
 }
+
+/* ---------------------------------------------------------------------------
+ * HBS brand layer — identitatea preluată de pe hbs.com.ro
+ * Portocaliu/roșu HBS #E1431B, text gri închis, tipografie Roboto + Open Sans.
+ * ------------------------------------------------------------------------- */
+
+@theme {
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --color-brand: oklch(0.596 0.184 34.5);
+  --color-brand-dark: oklch(0.512 0.161 34.5);
+  --color-brand-soft: oklch(0.962 0.021 47);
+  --color-ink: oklch(0.235 0.012 250);
+  --color-whatsapp: oklch(0.68 0.16 152);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.235 0.012 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.235 0.012 250);
+  --primary: oklch(0.596 0.184 34.5);
+  --primary-foreground: oklch(0.995 0 0);
+  --secondary: oklch(0.968 0.008 60);
+  --secondary-foreground: oklch(0.235 0.012 250);
+  --muted: oklch(0.972 0.005 60);
+  --muted-foreground: oklch(0.505 0.014 250);
+  --accent: oklch(0.962 0.021 47);
+  --accent-foreground: oklch(0.512 0.161 34.5);
+  --border: oklch(0.918 0.006 60);
+  --input: oklch(0.918 0.006 60);
+  --ring: oklch(0.596 0.184 34.5);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
