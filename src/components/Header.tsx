@@ -15,7 +15,9 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
+    <>
+    <header className="sticky top-0 z-50 border-b border-border bg-background">
+
       <div className="mx-auto grid max-w-5xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-2.5">
         <Link to="/" className="min-w-0" onClick={() => setOpen(false)}>
           <img
