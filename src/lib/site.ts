@@ -63,3 +63,126 @@ export const nav = [
   { to: "/", label: "Acasă" },
   { to: "/hidroizolatii-terase-circulabile", label: "Terase circulabile" },
 ] as const;
+
+const SITE = "https://hbs.com.ro";
+
+export type MenuItem = {
+  label: string;
+  /** Rută internă (implementată în acest site). */
+  to?: string;
+  /** Link către site-ul actual, pentru paginile încă nemigrate. */
+  href?: string;
+};
+
+export type MenuGroup = {
+  label: string;
+  items: MenuItem[];
+};
+
+/** Structura completă de servicii, preluată din meniul site-ului actual. */
+export const menuGroups: MenuGroup[] = [
+  {
+    label: "Hidroizolații terase și acoperișuri",
+    items: [
+      { label: "Hidroizolație terasă circulabilă", to: "/hidroizolatii-terase-circulabile" },
+      { label: "Hidroizolare terasă", href: `${SITE}/hidroizolatii-terase/` },
+      { label: "Hidroizolație terasă exterioară", href: `${SITE}/hidroizolatie-terasa-exterioara/` },
+      {
+        label: "Acoperișuri / terase necirculabile",
+        href: `${SITE}/hidroizolatii-acoperisuri-terase-necirculabile/`,
+      },
+      { label: "Hidroizolație acoperiș", href: `${SITE}/hidroizolatie-acoperis/` },
+    ],
+  },
+  {
+    label: "Balcoane, băi și interior",
+    items: [
+      { label: "Hidroizolație balcon", href: `${SITE}/hidroizolatie-balcoane/` },
+      { label: "Hidroizolații baie", href: `${SITE}/hidroizolatii-baie/` },
+      { label: "Hidroizolație interior", href: `${SITE}/hidroizolatie-interior/` },
+      { label: "Hidroizolație exterior", href: `${SITE}/hidroizolatie-exterior/` },
+      { label: "Hidroizolație lichidă exterior", href: `${SITE}/hidroizolatie-lichida-exterior/` },
+    ],
+  },
+  {
+    label: "Fundații, demisol și beci",
+    items: [
+      { label: "Hidroizolație fundație", href: `${SITE}/hidroizolatii-fundatii/` },
+      { label: "Fundație casă veche", href: `${SITE}/hidroizolatie-fundatie-casa-veche/` },
+      { label: "Hidroizolație demisol / beci", href: `${SITE}/hidroizolatie-demisol-beci/` },
+      { label: "Barieră orizontală", href: `${SITE}/hidroizolatie-demisol-beci/bariera-orizontala/` },
+      {
+        label: "Injectarea fisurilor",
+        href: `${SITE}/hidroizolatie-demisol-beci/injectarea-fisurilor/`,
+      },
+      {
+        label: "Sistem renovare tencuială",
+        href: `${SITE}/hidroizolatie-demisol-beci/renovare-tencuiala/`,
+      },
+      { label: "Sistem WTA", href: `${SITE}/hidroizolatie-demisol-beci/wta/` },
+      {
+        label: "Sistem Ruck-Zuck",
+        href: `${SITE}/hidroizolatie-demisol-beci/hidroizolatie-demisol-beci-ruck-zuck/`,
+      },
+    ],
+  },
+  {
+    label: "Pardoseli și finisaje",
+    items: [
+      { label: "Pardoseală epoxidică", href: `${SITE}/hidroizolatie-pardoseli/` },
+      { label: "Pardoseală poliuretanică", href: `${SITE}/pardoseala-poliuretanica/` },
+      { label: "Covor piatră naturală / marmură", href: `${SITE}/covor-piatra-naturala-marmura/` },
+      { label: "Microciment", href: `${SITE}/microciment/` },
+    ],
+  },
+  {
+    label: "Proiecte",
+    items: [
+      {
+        label: "Terase circulabile",
+        href: `${SITE}/proiecte-de-hidroizolatii/proiecte-hidroizolatii-terase-circulabile/`,
+      },
+      {
+        label: "Acoperișuri / terase necirculabile",
+        href: `${SITE}/proiecte-de-hidroizolatii/proiecte-hidroizolatii-acoperisuri/`,
+      },
+      {
+        label: "Balcoane",
+        href: `${SITE}/proiecte-de-hidroizolatii/proiecte-hidroizolatii-balcoane/`,
+      },
+      {
+        label: "Pardoseli epoxidice",
+        href: `${SITE}/proiecte-de-hidroizolatii/proiecte-hidroizolatii-pardoseli/`,
+      },
+      {
+        label: "Fundații",
+        href: `${SITE}/proiecte-de-hidroizolatii/proiecte-hidroizolatii-fundatii/`,
+      },
+      {
+        label: "Reparații",
+        href: `${SITE}/proiecte-de-hidroizolatii/proiecte-hidroizolatii-reparatii/`,
+      },
+      { label: "Baie", href: `${SITE}/proiecte-de-hidroizolatii/proiecte-hidroizolatii-baie/` },
+      {
+        label: "Covor piatră naturală / marmură",
+        href: `${SITE}/proiecte-de-hidroizolatii/proiecte-piatra-naturala/`,
+      },
+      { label: "Video", href: `${SITE}/proiecte-de-hidroizolatii/video/` },
+    ],
+  },
+  {
+    label: "Resurse și companie",
+    items: [
+      { label: "Despre noi", href: `${SITE}/despre-noi/` },
+      { label: "Importanța hidroizolațiilor", href: `${SITE}/importanta-hidroizolatiilor/` },
+      { label: "Costuri & proces", href: `${SITE}/costuri-hidroizolatie/` },
+      { label: "Broșuri", href: `${SITE}/resurse/brosuri/` },
+      { label: "Fișe tehnice", href: `${SITE}/resurse/fise-tehnice/` },
+      { label: "Parteneri", href: `${SITE}/home/parteneri/` },
+      { label: "Testimoniale", href: `${SITE}/testimoniale/` },
+      { label: "Blog", href: `${SITE}/blog-hidroizolatii/` },
+      { label: "Contact", href: `${SITE}/contact/` },
+    ],
+  },
+];
+
