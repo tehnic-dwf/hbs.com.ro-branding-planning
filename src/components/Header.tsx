@@ -52,7 +52,7 @@ export function Header() {
 
     </header>
     {open ? (
-      <div className="fixed inset-x-0 bottom-0 top-[57px] z-[60] overflow-y-auto bg-background px-4 pb-10 pt-6">
+      <div style={{ zIndex: 9999 }} className="fixed inset-x-0 bottom-0 top-[57px] overflow-y-auto bg-background px-4 pb-10 pt-6">
           <nav className="flex flex-col">
             {nav.map((item) => (
               <Link
