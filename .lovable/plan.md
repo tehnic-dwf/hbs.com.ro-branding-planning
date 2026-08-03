@@ -1,76 +1,88 @@
-# Plan: HBS.com.ro – homepage, pagină serviciu și conversie rapidă (GitHub Pages)
+# Plan: HBS – redesign mobile-first (homepage + terase circulabile + burger menu)
 
-## Răspuns la întrebarea despre GitHub Pages
-**Da, se poate.** Construim site-ul ca site static (prerender/SSG din TanStack Start). GitHub Pages servește doar fișiere statice, deci **nu folosim server functions** — toate elementele de conversie vor fi legături directe (tel:, WhatsApp) sau un formular către un serviciu extern.
+## Da, am înțeles documentele
 
-## Obiectiv
-Un pachet de design funcțional, orientat pe **lead generation**: distanță minimă între aterizarea userului și acțiunea de contact (formular, telefon, WhatsApp).
+Cele trei documente sunt suficiente pentru a construi cele trei livrabile. Ce am extras:
 
-## Pagini incluse
-1. **Homepage** (`/`) – hero cu CTA imediat, servicii, dovezi sociale, contact.
-2. **Hidroizolație terasă circulabilă** (`/hidroizolatii-terase-circulabile`) – pagină de serviciu, replicând conținutul actual: descriere, galerie proiecte, proces de hidroizolare, CTA-uri repetate.
-3. **Burger menu** – navigare mobilă completă cu acțiuni de contact în interior.
+- **Brand Foundations** – poziționarea reală: „firma pe care o chemi după ce altcineva a stricat treaba". 80–90% din lucrări sunt refaceri. Emoția vândută: eliberarea de anxietatea de a verifica munca altcuiva. Ton: direct, tehnic-accesibil, fără superlative. Dovezi: 4,8/5 din 87 recenzii, sisteme Hahne Germania, ISO 9001, garanție pe sistem, acces direct la Mihai Drăgușin.
+- **ICP/CRO** – structura completă a homepage-ului (11 secțiuni), headline-ul recomandat, matricea temerilor, CTA-urile pe nivel de intenție, formularul progresiv în 3 pași, regulile de preț și lista de mesaje interzise.
+- **OSINT** – date de firmă verificabile pentru footer și secțiunea de credibilitate.
 
-## Strategie de conversie (lead generation)
-Elemente prezente pe ambele pagini:
+**Decizia strategică cheie din documente:** CTA-ul principal **nu** este „Cere ofertă", ci **„Trimite poze pentru o preevaluare"**. Iar problema #1 de business este șocul de preț, deci ancorarea costului intră pe homepage, înainte de formular.
+
+## Livrabile (mobile-first)
+
+### 1. Homepage `/`
+Urmează exact structura din secțiunea 6 a documentului CRO:
+
+1. Hero – „Ai reparat terasa, dar infiltrația a reapărut?" + subheadline + bară de dovadă + CTA preevaluare + microcopy
+2. Simptome – carduri: pete pe tavan, gresie ridicată / sunet gol, rosturi crăpate, apă după ploaie, mucegai
+3. De ce reapare – simptom vs. cauză, explicat simplu
+4. Cum diagnosticăm – ce se poate și ce nu se poate confirma din poze
+5. Cazuri similare – problemă → diagnostic → intervenție → rezultat
+6. Intervenție locală vs. refacere completă – criterii, anti-upsell
+7. Cum decurge lucrarea – etape, durată, protecție, curățenie
+8. Ce include prețul – costuri fixe vs. variabile, „de ce 10 mp nu costă jumătate din 20 mp", interval orientativ
+9. Garanție și documentație – ce acoperă, cine răspunde, în cât timp
+10. Recenzii relevante – selectate pe temele reale: seriozitate, comunicare, curățenie
+11. CTA final – formular de preevaluare + termen de răspuns
+
+### 2. Pagina `/hidroizolatii-terase-circulabile`
+Aceeași logică, aplicată pe serviciu: simptome specifice teraselor circulabile, procesul tehnic (poliuretan continuu, fără îmbinări), galerie pe etape, secțiune preț pentru terase, FAQ („se poate face peste gresie?", „cum știu dacă apa e în șapă?"), CTA-uri repetate după fiecare secțiune.
+
+### 3. Burger menu (mobil)
+Panou full-screen cu: navigație, telefon, WhatsApp, CTA preevaluare, plus reasigurare scurtă (4,8/5 · 87 recenzii).
+
+## Sistemul de conversie (scurtarea distanței până la contact)
 
 | Element | Comportament |
 | --- | --- |
-| **Bara sticky mobil** | Bară fixă jos, mereu vizibilă: `Sună`, `WhatsApp`, `Cere ofertă`. Distanță = un singur tap din orice punct al paginii. |
-| **CTA în hero** | Buton principal `Cere o ofertă` + buton secundar `Sună acum` vizibile fără scroll. |
-| **Telefon în header** | Număr clicabil `tel:+40722750380`, mereu vizibil pe desktop; în burger menu pe mobil. |
-| **Buton flotant WhatsApp** | Deschide direct conversația cu mesaj pre-completat legat de serviciul din pagină. |
-| **CTA-uri intermediare** | Se repetă după fiecare secțiune majoră de conținut, ca pe pagina actuală. |
-| **Formular scurt** | 3 câmpuri (nume, telefon, tip lucrare) — cerem minimum de date pentru a nu pierde userul. |
+| **Bară sticky jos (mobil)** | `Sună` · `WhatsApp` · `Trimite poze` — permanent, fără să acopere conținut |
+| **CTA hero** | Vizibil fără scroll |
+| **WhatsApp cu mesaj precompletat** | Diferit pe fiecare pagină, în linie cu procesul real de vânzare (clientul trimite poze pe WhatsApp) |
+| **CTA-uri intermediare** | După fiecare secțiune, formulate pe nivel de intenție, nu generic |
+| **Formular progresiv 3 pași** | Situația → Context → Contact & poze, cu microcopy, opțiune „Nu știu", validare inline, confirmare cu termen de răspuns |
 
-Formularul, fiind pe GitHub Pages, va fi conectat la un serviciu extern de formulare (ex. Formspree sau Web3Forms) — trimite direct pe email, fără backend.
+Toate mesajele respectă lista „de evitat": fără „premium", fără „cele mai bune materiale", fără „rezolvăm definitiv orice infiltrație", fără „Cere ofertă" / „Contactează-ne".
 
 ## Design
-- **Identitate:** logo actual, portocaliu/roșu `#E1431B`, fundal alb, text gri `#666666`.
-- **Font:** Open Sans.
-- **Stil:** curat, industrial-construcții, ierarhie clară, CTA-uri cu contrast puternic.
+- Mobile-first: totul proiectat la 375px, apoi extins.
+- Zone de tap mari, contrast puternic (citit afară, pe telefon, în soare).
+- Fără carusele care ascund informație critică.
+- Fotografii reale de șantier (nu stock), etichetate „simptom" / „cauză".
 
-## Conținut
-- Preluat de pe site-ul actual: texte hero, descrieri servicii, testimoniale, conținutul complet al paginii de terase circulabile, imaginile galeriei.
+## GitHub Pages – da, se poate
+Site static, prerender din TanStack Start, fără cod de server:
+- prerender pentru cele două rute, output `dist/client`
+- `base` path setat după numele repository-ului
+- workflow GitHub Actions care face build și publică pe Pages
+- formularul trimite către un serviciu extern (Formspree / Web3Forms), deci funcționează fără backend
 
-## Tehnologie și adaptare GitHub Pages
-- **Stack:** TanStack Start, React, Tailwind CSS v4, shadcn/ui.
-- **Build static:** activăm `prerender` în `vite.config.ts` pentru cele două rute; output în `dist/client`.
-- **Base path:** `base` din Vite configurat după numele repository-ului GitHub.
-- **Deploy:** GitHub Actions workflow care rulează build-ul și publică `dist/client` pe GitHub Pages.
-
-## Structură fișiere propusă
+## Structură tehnică
 ```text
 src/routes/
-  __root.tsx                              -> header, footer, bara sticky, buton WhatsApp
+  __root.tsx                              -> header, footer, sticky bar, WhatsApp
   index.tsx                               -> homepage
   hidroizolatii-terase-circulabile.tsx    -> pagina de serviciu
 
 src/components/
-  Header.tsx           -> logo, nav desktop, telefon
-  MobileMenu.tsx       -> burger menu cu acțiuni de contact
-  StickyContactBar.tsx -> bara fixă mobil: sună / WhatsApp / ofertă
-  WhatsAppButton.tsx   -> buton flotant
-  Hero.tsx             -> hero cu CTA dublu
-  LeadForm.tsx         -> formular scurt de 3 câmpuri
-  ServiceCard.tsx      -> card serviciu
-  Testimonials.tsx     -> testimoniale
-  Gallery.tsx          -> galerie proiecte
-  Footer.tsx
+  Header.tsx / MobileMenu.tsx             -> burger menu
+  StickyContactBar.tsx                    -> sună / WhatsApp / trimite poze
+  PreevaluareForm.tsx                     -> formular progresiv 3 pași
+  SymptomCards.tsx  CauseExplainer.tsx
+  CaseStudy.tsx     ProcessTimeline.tsx
+  PriceBreakdown.tsx WarrantySection.tsx
+  Reviews.tsx       FAQ.tsx  Footer.tsx
 ```
 
-## Pași de implementare
-1. Configurare Vite: prerender static + base path GitHub Pages.
-2. Design system: culori HBS, tipografie Open Sans, variante de buton.
-3. Componente de conversie: sticky bar, WhatsApp, burger menu, lead form.
-4. Header și footer.
-5. Homepage.
-6. Pagina hidroizolații terase circulabile.
-7. Conectare formular la serviciu extern.
-8. GitHub sync + workflow de deploy pe Pages.
-9. Testare mobil, verificare build static.
+## Ce îmi mai trebuie de la tine
 
-## Decizii de luat împreună
-1. **Numele repository-ului GitHub** – repo personal (`user.github.io`) sau repo normal? Determină `base` path-ul.
-2. **Numărul de WhatsApp** – același cu `0722 750 380` sau altul?
-3. **Adresa de email** pentru primirea lead-urilor din formular.
+1. **Logo HBS** – fișier, sau îl preiau de pe hbs.com.ro?
+2. **Culori și font** – documentele nu conțin identitate vizuală. Păstrăm paleta actuală de pe site (portocaliu/roșu pe alb) sau vrei o direcție nouă?
+3. **Fotografii reale** – documentul cere explicit foto de șantier pe etape, cu simptom vs. cauză. Am acces doar la imaginile publice de pe site. Ai un set mai bun?
+4. **Cifra de poziționare** – documentul semnalează inconsistența 60% / 75% / 80% / 90%. Ce cifră unică folosim peste tot?
+5. **Intervalul de preț de publicat** – documentele conțin ~425 EUR/mp la 10 mp și ~360 EUR/mp la 20 mp. Le afișăm public sau doar structura de cost fără cifre?
+6. **Numărul de WhatsApp** – același `0722 750 380`?
+7. **Numele repo-ului GitHub** – determină `base` path-ul pentru Pages.
+
+Pot începe și fără 1–3 (folosesc ce e public pe site și marchez ce trebuie înlocuit), dar 4, 5 și 6 sunt decizii de conținut pe care nu le pot lua eu.
