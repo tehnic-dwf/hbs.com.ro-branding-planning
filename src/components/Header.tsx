@@ -50,8 +50,9 @@ export function Header() {
         </div>
       </div>
 
-      {open ? (
-        <div className="fixed inset-x-0 bottom-0 top-[57px] z-50 overflow-y-auto bg-background px-4 pb-10 pt-6">
+    </header>
+    {open ? (
+      <div className="fixed inset-x-0 bottom-0 top-[57px] z-[60] overflow-y-auto bg-background px-4 pb-10 pt-6">
           <nav className="flex flex-col">
             {nav.map((item) => (
               <Link
@@ -96,8 +97,9 @@ export function Header() {
             <Star className="h-4 w-4 fill-primary text-primary" aria-hidden />
             {proof.rating} · {proof.reviews}
           </p>
-        </div>
-      ) : null}
-    </header>
+      </div>
+    ) : null}
+    </>
   );
+
 }
