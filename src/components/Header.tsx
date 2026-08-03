@@ -1,11 +1,20 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, X, Phone, MessageCircle, Star } from "lucide-react";
+import { Menu, X, Phone, MessageCircle, Star, ChevronDown, ExternalLink } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { contact, images, nav, proof, whatsappLink, whatsappMessages } from "@/lib/site";
+import {
+  contact,
+  images,
+  menuGroups,
+  nav,
+  proof,
+  whatsappLink,
+  whatsappMessages,
+} from "@/lib/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [openGroup, setOpenGroup] = useState<string | null>(menuGroups[0]?.label ?? null);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -13,6 +22,7 @@ export function Header() {
       document.body.style.overflow = "";
     };
   }, [open]);
+
 
   return (
     <>
