@@ -1,55 +1,59 @@
-# Plan: Website de prezentare HBS.com.ro
+# Plan: Website de prezentare HBS.com.ro (homepage + servicii + meniu mobil) pentru GitHub Pages
+
+## Răspuns scurt la întrebarea cheie
+**Da, TanStack Start + React + Tailwind CSS + shadcn/ui poate randa pe GitHub Pages.** Soluția este să construim site-ul ca site static (SSG/prerender) din TanStack Start. GitHub Pages servește doar fișiere statice, așa că **nu vom folosi server functions** în această fază.
 
 ## Obiectiv
-Relansăm site-ul HBS (Hydro Business Systems) ca website de prezentare modern, rapid, mobile-first, păstrând identitatea vizuală actuală și migrând conținutul existent.
+Creăm un pachet de design funcțional pentru HBS, cu doar două pagini și un meniu mobil tip burger, gata să fie hostat pe GitHub Pages.
 
-## Ce se construiește
-- Website de prezentare în limba română, 6-8 pagini principale.
-- Două formulare de lead: **Contact** și **Cere o ofertă**.
-- SEO de bază (titluri, descrieri, structură semantică) pentru fiecare pagină.
-
-## Pagini și secțiuni propuse
-| Pagină | Rol |
-| --- | --- |
-| Home | Hero cu categorii de servicii, prezentare companie, servicii, testimoniale, CTA. |
-| Despre noi | Istoric, certificări ISO, echipă. |
-| Servicii | Hidroizolații acoperișuri/terase, pardoseli, balcoane, fundații, reparații. |
-| Proiecte | Portofoliu de lucrări realizate. |
-| Parteneri / Resurse | Branduri și materiale informative. |
-| Blog | Articole tehnice (opțional, preluate din WordPress). |
-| Contact / Cere ofertă | Formulare lead. |
+## Ce se construiește (scope redus)
+- **Homepage** (`/`) – hero, servicii highlight, testimoniale, CTA.
+- **Pagina de servicii** (`/servicii`) – lista completă de hidroizolații.
+- **Header + navigare mobilă** – meniu desktop normal și meniu hamburger pe mobil.
+- **Footer** – date de contact minimal, copyright.
+- **Nu includem** în această fază: blog, pagină "Despre noi" separată, formulare de lead (GitHub Pages nu are backend; se pot adăuga mai târziu printr-un serviciu extern de formular).
 
 ## Design
-- **Identitate:** păstrăm logo-ul actual și culorile HBS (portocaliu/roșu `#E04622` / `#E1431B`, fundal alb, text gri `#666666`).
-- **Fonturi:** Open Sans pentru body și heading, conform site-ului actual.
-- **Stil:** layout mai curat, spacing consistent, componente moderne (cards, butoane rotunjite), păstrând tonul profesional și industrial.
+- **Identitate:** păstrăm logo-ul și culorile HBS (portocaliu/roșu `#E1431B`, fundal alb, text gri `#666666`).
+- **Font:** Open Sans, conform site-ului actual.
+- **Stil:** layout curat, modern, industrial-construcții, spacing consistent, componente shadcn/ui adaptate la brand.
 
 ## Conținut
-- Se preiau textele și imaginile de pe site-ul actual WordPress.
-- Se face un inventar al paginilor și articolelor existente.
-- Se decid paginile care se migrează 1:1, cele care se unesc sau se renunță.
+- Preluăm textele și imaginile relevante de pe site-ul actual WordPress pentru homepage și servicii.
+- Nu migrăm automat întreg site-ul; doar cele două pagini plus elementele comune (header/footer).
 
-## Tehnologie
-- **Frontend:** TanStack Start + React + Tailwind CSS + shadcn/ui.
-- **Backend:** Lovable Cloud (Supabase) pentru stocarea trimiterilor formularelor de lead.
-- **Opțional:** conector WordPress pentru import automat al paginilor/blogului.
+## Tehnologie și adaptare pentru GitHub Pages
+- **Stack:** TanStack Start, React, Tailwind CSS v4, shadcn/ui.
+- **Build static:** activăm prerender în `vite.config.ts` pentru rutele `/` și `/servicii`. Output-ul va fi generat în `dist/client` ca fișiere HTML statice.
+- **Base path:** Vite va fi configurat cu `base` corespunzător numelui repository-ului GitHub (ex: `/hbs-website/` pentru repo `hbs-website`, sau `/` pentru repo `numeutilizator.github.io`).
+- **Fără server functions:** toate componentele sunt client-side; formularul de contact nu este inclus în această fază.
+- **Rutare:** linkurile folosesc `<Link>` din TanStack Router; la build static, fiecare rută devine un fișier HTML real.
 
-## Formulare lead
-- Validare client și server cu Zod.
-- Se salvează în baza de date și se trimite notificare către echipa HBS.
-- Protecție anti-spam (reCAPTCHA sau honeypot).
+## Structură fișiere propusă
+```text
+src/routes/
+  __root.tsx         -> layout cu header + footer
+  index.tsx          -> / (homepage)
+  servicii.tsx       -> /servicii (pagina servicii)
+
+src/components/
+  Header.tsx         -> header + meniu desktop
+  MobileMenu.tsx     -> sheet/dialog cu meniu hamburger
+  Footer.tsx         -> footer
+  Hero.tsx           -> hero homepage
+  ServiceCard.tsx    -> card serviciu
+  Testimonials.tsx     -> testimoniale
+```
 
 ## Pași de implementare
-1. Inventar complet al conținutului site-ului existent (pagini, imagini, articole).
-2. Setup proiect și activare Lovable Cloud pentru lead-uri.
-3. Definire design system (culori, tipografie, componente comune).
-4. Dezvoltare pagini și componente.
-5. Implementare formulare lead și stocare.
-6. Testare responsive, performanță, SEO.
-7. Publicare și configurare domeniu.
+1. Configurare `vite.config.ts` pentru prerender static și base path GitHub Pages.
+2. Configurare GitHub sync pentru exportul codului în repository.
+3. Adăugare GitHub Actions workflow pentru build static și deploy pe GitHub Pages.
+4. Creare componente comune: header, mobile menu, footer.
+5. Creare pagina homepage (`/`).
+6. Creare pagina servicii (`/servicii`).
+7. Test local, build static, verificare output.
+8. Publicare pe GitHub Pages.
 
-## Decizii de luat împreună
-1. Domeniu: se înlocuiește `hbs.com.ro` sau se folosește mai întâi un subdomeniu de test?
-2. Migrare conținut: manual sau prin conector WordPress?
-3. Blog: se include în noua versiune sau se renunță temporar?
-4. Notificări lead: către ce adresă de email ajung cererile?
+## Decizie de luat împreună
+**Numele repository-ului GitHub:** este repo personal (`numeutilizator.github.io`) sau un repo normal (`numeutilizator/hbs-website`)? De asta depinde `base` path-ul din Vite și URL-ul final de GitHub Pages.
