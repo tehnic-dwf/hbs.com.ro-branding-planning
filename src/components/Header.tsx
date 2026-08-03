@@ -77,6 +77,64 @@ export function Header() {
             ))}
           </nav>
 
+          <div className="mt-6">
+            <p className="mb-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+              Servicii
+            </p>
+            {menuGroups.map((group) => {
+              const expanded = openGroup === group.label;
+              return (
+                <div key={group.label} className="border-b border-border">
+                  <button
+                    type="button"
+                    aria-expanded={expanded}
+                    onClick={() => setOpenGroup(expanded ? null : group.label)}
+                    className="flex w-full items-center justify-between gap-3 py-3.5 text-left font-display text-base font-bold text-foreground"
+                  >
+                    {group.label}
+                    <ChevronDown
+                      className={`h-5 w-5 shrink-0 text-primary transition-transform ${
+                        expanded ? "rotate-180" : ""
+                      }`}
+                      aria-hidden
+                    />
+                  </button>
+                  {expanded ? (
+                    <ul className="pb-3">
+                      {group.items.map((item) =>
+                        item.to ? (
+                          <li key={item.label}>
+                            <Link
+                              to={item.to}
+                              onClick={() => setOpen(false)}
+                              className="block py-2.5 pl-3 text-sm font-semibold text-foreground"
+                              activeProps={{ className: "text-primary" }}
+                            >
+                              {item.label}
+                            </Link>
+                          </li>
+                        ) : (
+                          <li key={item.label}>
+                            <a
+                              href={item.href}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="flex items-center gap-2 py-2.5 pl-3 text-sm text-muted-foreground"
+                            >
+                              {item.label}
+                              <ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                            </a>
+                          </li>
+                        ),
+                      )}
+                    </ul>
+                  ) : null}
+                </div>
+              );
+            })}
+          </div>
+
+
           <div className="mt-6 flex flex-col gap-3">
             <a
               href="#preevaluare"
