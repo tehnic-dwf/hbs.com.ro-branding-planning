@@ -42,11 +42,12 @@ function TeraseCirculabile() {
               Terase circulabile
             </p>
             <h1 className="mt-2 text-[26px] font-bold leading-tight">
-              Terasa se calcă zilnic — de aceea hidroizolația cedează prima
+              Hidroizolație pentru terase circulabile — terase cu trafic, mobilier și spații
+              locuite dedesubt
             </h1>
             <p className="mt-3 text-base leading-relaxed text-white/80">
-              O terasă circulabilă are trafic, mobilier, dilatări și un placaj peste hidroizolație.
-              Orice îmbinare din sistemul de dedesubt devine, în timp, un punct de intrare.
+              Dacă apa reapare după ploi sau după o reparație locală, verificăm cauza înainte să
+              recomandăm sistemul nou.
             </p>
             <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm text-white/70">
               <li className="flex items-center gap-1.5">
@@ -65,9 +66,11 @@ function TeraseCirculabile() {
               <Camera className="h-5 w-5" aria-hidden />
               Trimite poze pentru o preevaluare
             </a>
-            <p className="mt-2 text-center text-xs text-white/60">
-              Răspuns în aceeași zi lucrătoare, fără deplasare în prima fază.
+            <p className="mt-3 text-sm leading-relaxed text-white/60">
+              Nu trebuie să știi ce sistem a fost folosit. Fotografiile ne ajută să înțelegem
+              situația inițială; cauza se confirmă după verificarea la fața locului.
             </p>
+
           </div>
         </div>
       </section>
