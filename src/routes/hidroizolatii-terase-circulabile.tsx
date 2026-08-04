@@ -10,7 +10,8 @@ import { contact, images, proof, showPriceFigures, whatsappMessages } from "@/li
 
 const title = "Hidroizolații terase circulabile București | HBS";
 const description =
-  "Terasă circulabilă cu infiltrații sau gresie care sună a gol? Sistem poliuretanic continuu, fără îmbinări. Trimite poze pentru o preevaluare în aceeași zi.";
+  "Terasă circulabilă cu infiltrații sau gresie care sună a gol? Verificăm cauza înainte să recomandăm sistemul nou. Trimite poze pentru o preevaluare.";
+
 
 export const Route = createFileRoute("/hidroizolatii-terase-circulabile")({
   head: () => ({
@@ -41,11 +42,12 @@ function TeraseCirculabile() {
               Terase circulabile
             </p>
             <h1 className="mt-2 text-[26px] font-bold leading-tight">
-              Terasa se calcă zilnic — de aceea hidroizolația cedează prima
+              Hidroizolație pentru terase circulabile — terase cu trafic, mobilier și spații
+              locuite dedesubt
             </h1>
             <p className="mt-3 text-base leading-relaxed text-white/80">
-              O terasă circulabilă are trafic, mobilier, dilatări și un placaj peste hidroizolație.
-              Orice îmbinare din sistemul de dedesubt devine, în timp, un punct de intrare.
+              Dacă apa reapare după ploi sau după o reparație locală, verificăm cauza înainte să
+              recomandăm sistemul nou.
             </p>
             <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm text-white/70">
               <li className="flex items-center gap-1.5">
@@ -64,9 +66,11 @@ function TeraseCirculabile() {
               <Camera className="h-5 w-5" aria-hidden />
               Trimite poze pentru o preevaluare
             </a>
-            <p className="mt-2 text-center text-xs text-white/60">
-              Răspuns în aceeași zi lucrătoare, fără deplasare în prima fază.
+            <p className="mt-3 text-sm leading-relaxed text-white/60">
+              Nu trebuie să știi ce sistem a fost folosit. Fotografiile ne ajută să înțelegem
+              situația inițială; cauza se confirmă după verificarea la fața locului.
             </p>
+
           </div>
         </div>
       </section>
@@ -163,6 +167,65 @@ function TeraseCirculabile() {
           whatsappMessage={whatsappMessages.terase}
         />
       </Section>
+
+      <Section>
+        <SectionTitle
+          kicker="Ce e corect în cazul tău"
+          title="Intervenție locală sau refacere completă a terasei"
+        />
+        <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
+          Recomandăm o intervenție locală atunci când defectul este local, suportul este stabil și
+          apa nu a compromis straturile din jur. Când placajul este desprins pe suprafețe extinse,
+          apa stagnează în șapă sau racordurile au cedat, o reparație punctuală poate ascunde
+          temporar simptomul fără să elimine cauza.
+        </p>
+        <Faq
+          items={[
+            {
+              q: "Când poate fi suficientă o intervenție locală?",
+              a: "Când zona afectată este delimitată clar, restul suprafeței este integru, suportul este uscat și sistemul existent este compatibil cu materialul de reparație.",
+            },
+            {
+              q: "Când refacerea completă devine justificată?",
+              a: "Când terasa a mai fost reparată de una sau mai multe ori, apa a ajuns în șapă ori în termoizolație, pantele sunt greșite sau îmbinările au cedat pe toată suprafața.",
+            },
+          ]}
+        />
+        <p className="mt-4 rounded-md border-l-4 border-primary bg-accent p-3 text-sm leading-relaxed">
+          Decizia finală se ia după verificarea la fața locului, nu din poze.
+        </p>
+      </Section>
+
+      <Section tone="soft">
+        <SectionTitle
+          kicker="Înainte de prima zi de șantier"
+          title="Ce stabilim înainte să se deschidă primul material"
+        />
+        <div className="grid gap-3">
+          <InfoCard title="Protejarea proprietății">
+            Traseul de acces, ușile, balustrada și zonele adiacente se protejează înainte de
+            decopertare, iar starea inițială se documentează foto.
+          </InfoCard>
+          <InfoCard title="Vremea și terasa deschisă">
+            Etapele se planifică după prognoză, iar suprafața decopertată se protejează temporar.
+            Dacă vremea nu permite aplicarea corectă, amânăm etapa și îți spunem de ce.
+          </InfoCard>
+          <InfoCard title="Praguri, cote și deschiderea ușilor">
+            Se măsoară cota pragului, panta și nivelul scurgerilor înainte de execuție, ca să știi
+            dinainte cum se comportă ușa după refacere.
+          </InfoCard>
+          <InfoCard title="Durata, evacuarea și curățenia">
+            Planul include zilele efective de lucru, timpii de uscare, evacuarea molozului și
+            curățenia finală.
+          </InfoCard>
+          <InfoCard title="Garanție și documentație">
+            Primești documentația etapelor, lista materialelor folosite, recepția lucrării și
+            condițiile de garanție explicate înainte de semnare.
+          </InfoCard>
+        </div>
+      </Section>
+
+
 
       <Section tone="soft">
         <SectionTitle kicker="Transparență" title="Ce include prețul unei terase circulabile" />
