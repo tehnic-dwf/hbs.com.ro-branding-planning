@@ -1,14 +1,16 @@
-# Welcome to your Lovable project
+# HBS.com.ro Branding Planning
+
+vom incepe etapa de planificare, pentru clientul HBS.com.ro, poti sa intri insa pe site la ei, sa iti iei elemente de branding de pe actualul site, cum ar fi logo - https://hbs.com.ro/ - deocamdata vom discuta, vom planifica, sa nu executi nimic
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/fd8c3aa1-3881-49c5-a885-9e26e8197d92).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +22,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
