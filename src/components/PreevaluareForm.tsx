@@ -133,11 +133,13 @@ export function PreevaluareForm({ contextLabel }: { contextLabel: string }) {
           Trimite pozele pe WhatsApp
         </a>
         <p className="mt-3 text-xs text-muted-foreground">
-          Îți răspundem în aceeași zi lucrătoare. Dacă preferi telefonul:{" "}
+          Îți spunem ce informații mai sunt necesare și care este următorul pas. Dacă preferi
+          telefonul:{" "}
           <a href={contact.phoneHref} className="font-semibold text-foreground underline">
             {contact.phoneDisplay}
           </a>
         </p>
+
       </div>
     );
   }
