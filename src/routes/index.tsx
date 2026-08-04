@@ -1,8 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AlertTriangle, ShieldCheck, Star, Camera, Clock, FileText } from "lucide-react";
 
+import { Faq } from "@/components/Faq";
+import { GuideBanner } from "@/components/GuideBanner";
 import { PreevaluareForm } from "@/components/PreevaluareForm";
 import { Bullet, InfoCard, InlineCta, Section, SectionTitle } from "@/components/sections";
+import { faqAnxietati } from "@/lib/faq";
 import { contact, images, proof, showPriceFigures, whatsappMessages } from "@/lib/site";
 
 const title = "Hidroizolații terase și balcoane București | HBS";
@@ -123,6 +126,7 @@ function Index() {
             lucrărilor, nu în câmp.
           </InfoCard>
         </div>
+        <GuideBanner />
       </Section>
 
       {/* 4. CUM DIAGNOSTICĂM */}
@@ -294,6 +298,10 @@ function Index() {
           label="Vrei un reper de cost pentru cazul tău?"
           whatsappMessage={whatsappMessages.home}
         />
+        <GuideBanner
+          title="Compari mai multe oferte?"
+          text="Ghidul în 7 puncte îți dă criteriile obiective cu care compari o ofertă ieftină cu una făcută ca la carte."
+        />
       </Section>
 
       {/* 9. GARANȚIE */}
@@ -320,7 +328,20 @@ function Index() {
         />
       </Section>
 
-      {/* 10. RECENZII */}
+      {/* 10. ÎNTREBĂRI FRECVENTE */}
+      <Section>
+        <SectionTitle
+          kicker="Întrebări frecvente"
+          title="Ce se întâmplă concret la tine acasă"
+        />
+        <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+          Cele mai multe temeri nu sunt despre hidroizolație, ci despre deranj, mizerie și cine
+          răspunde dacă iese prost. Iată răspunsurile, înainte să întrebi.
+        </p>
+        <Faq items={faqAnxietati} />
+      </Section>
+
+      {/* 11. RECENZII */}
       <Section>
         <SectionTitle kicker={`${proof.rating} · ${proof.reviews}`} title="Ce spun oamenii după lucrare" />
         <div className="flex flex-col gap-3">

@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GhidProprietarTerasaRouteImport } from './routes/ghid-proprietar-terasa'
 import { Route as HidroizolatiiTeraseCirculabileRouteImport } from './routes/hidroizolatii-terase-circulabile'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GhidProprietarTerasaRoute = GhidProprietarTerasaRouteImport.update({
+  id: '/ghid-proprietar-terasa',
+  path: '/ghid-proprietar-terasa',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HidroizolatiiTeraseCirculabileRoute =
@@ -26,27 +32,36 @@ const HidroizolatiiTeraseCirculabileRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ghid-proprietar-terasa': typeof GhidProprietarTerasaRoute
   '/hidroizolatii-terase-circulabile': typeof HidroizolatiiTeraseCirculabileRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ghid-proprietar-terasa': typeof GhidProprietarTerasaRoute
   '/hidroizolatii-terase-circulabile': typeof HidroizolatiiTeraseCirculabileRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ghid-proprietar-terasa': typeof GhidProprietarTerasaRoute
   '/hidroizolatii-terase-circulabile': typeof HidroizolatiiTeraseCirculabileRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/hidroizolatii-terase-circulabile'
+  fullPaths:
+    '/' | '/ghid-proprietar-terasa' | '/hidroizolatii-terase-circulabile'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/hidroizolatii-terase-circulabile'
-  id: '__root__' | '/' | '/hidroizolatii-terase-circulabile'
+  to: '/' | '/ghid-proprietar-terasa' | '/hidroizolatii-terase-circulabile'
+  id:
+    | '__root__'
+    | '/'
+    | '/ghid-proprietar-terasa'
+    | '/hidroizolatii-terase-circulabile'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GhidProprietarTerasaRoute: typeof GhidProprietarTerasaRoute
   HidroizolatiiTeraseCirculabileRoute: typeof HidroizolatiiTeraseCirculabileRoute
 }
 
@@ -57,6 +72,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ghid-proprietar-terasa': {
+      id: '/ghid-proprietar-terasa'
+      path: '/ghid-proprietar-terasa'
+      fullPath: '/ghid-proprietar-terasa'
+      preLoaderRoute: typeof GhidProprietarTerasaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hidroizolatii-terase-circulabile': {
@@ -71,6 +93,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GhidProprietarTerasaRoute: GhidProprietarTerasaRoute,
   HidroizolatiiTeraseCirculabileRoute: HidroizolatiiTeraseCirculabileRoute,
 }
 export const routeTree = rootRouteImport
