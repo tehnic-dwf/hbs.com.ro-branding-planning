@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Camera, ShieldCheck, Star } from "lucide-react";
 
+import { faqAnxietati } from "@/lib/faq";
+import { Faq } from "@/components/Faq";
+import { GuideBanner } from "@/components/GuideBanner";
 import { PreevaluareForm } from "@/components/PreevaluareForm";
 import { Bullet, InfoCard, InlineCta, Section, SectionTitle } from "@/components/sections";
 import { contact, images, proof, showPriceFigures, whatsappMessages } from "@/lib/site";
@@ -217,6 +220,11 @@ function TeraseCirculabile() {
             </details>
           ))}
         </div>
+        <p className="mb-3 mt-6 font-display text-base font-bold">
+          Despre deranj, mizerie și cine răspunde
+        </p>
+        <Faq items={faqAnxietati} />
+        <GuideBanner />
         <InlineCta
           label="Ai altă întrebare? Scrie-ne pe WhatsApp."
           whatsappMessage={whatsappMessages.terase}
