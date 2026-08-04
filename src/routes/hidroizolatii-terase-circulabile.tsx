@@ -10,7 +10,8 @@ import { contact, images, proof, showPriceFigures, whatsappMessages } from "@/li
 
 const title = "Hidroizolații terase circulabile București | HBS";
 const description =
-  "Terasă circulabilă cu infiltrații sau gresie care sună a gol? Sistem poliuretanic continuu, fără îmbinări. Trimite poze pentru o preevaluare în aceeași zi.";
+  "Terasă circulabilă cu infiltrații sau gresie care sună a gol? Verificăm cauza înainte să recomandăm sistemul nou. Trimite poze pentru o preevaluare.";
+
 
 export const Route = createFileRoute("/hidroizolatii-terase-circulabile")({
   head: () => ({
