@@ -168,6 +168,65 @@ function TeraseCirculabile() {
         />
       </Section>
 
+      <Section>
+        <SectionTitle
+          kicker="Ce e corect în cazul tău"
+          title="Intervenție locală sau refacere completă a terasei"
+        />
+        <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
+          Recomandăm o intervenție locală atunci când defectul este local, suportul este stabil și
+          apa nu a compromis straturile din jur. Când placajul este desprins pe suprafețe extinse,
+          apa stagnează în șapă sau racordurile au cedat, o reparație punctuală poate ascunde
+          temporar simptomul fără să elimine cauza.
+        </p>
+        <Faq
+          items={[
+            {
+              q: "Când poate fi suficientă o intervenție locală?",
+              a: "Când zona afectată este delimitată clar, restul suprafeței este integru, suportul este uscat și sistemul existent este compatibil cu materialul de reparație.",
+            },
+            {
+              q: "Când refacerea completă devine justificată?",
+              a: "Când terasa a mai fost reparată de una sau mai multe ori, apa a ajuns în șapă ori în termoizolație, pantele sunt greșite sau îmbinările au cedat pe toată suprafața.",
+            },
+          ]}
+        />
+        <p className="mt-4 rounded-md border-l-4 border-primary bg-accent p-3 text-sm leading-relaxed">
+          Decizia finală se ia după verificarea la fața locului, nu din poze.
+        </p>
+      </Section>
+
+      <Section tone="soft">
+        <SectionTitle
+          kicker="Înainte de prima zi de șantier"
+          title="Ce stabilim înainte să se deschidă primul material"
+        />
+        <div className="grid gap-3">
+          <InfoCard title="Protejarea proprietății">
+            Traseul de acces, ușile, balustrada și zonele adiacente se protejează înainte de
+            decopertare, iar starea inițială se documentează foto.
+          </InfoCard>
+          <InfoCard title="Vremea și terasa deschisă">
+            Etapele se planifică după prognoză, iar suprafața decopertată se protejează temporar.
+            Dacă vremea nu permite aplicarea corectă, amânăm etapa și îți spunem de ce.
+          </InfoCard>
+          <InfoCard title="Praguri, cote și deschiderea ușilor">
+            Se măsoară cota pragului, panta și nivelul scurgerilor înainte de execuție, ca să știi
+            dinainte cum se comportă ușa după refacere.
+          </InfoCard>
+          <InfoCard title="Durata, evacuarea și curățenia">
+            Planul include zilele efective de lucru, timpii de uscare, evacuarea molozului și
+            curățenia finală.
+          </InfoCard>
+          <InfoCard title="Garanție și documentație">
+            Primești documentația etapelor, lista materialelor folosite, recepția lucrării și
+            condițiile de garanție explicate înainte de semnare.
+          </InfoCard>
+        </div>
+      </Section>
+
+
+
       <Section tone="soft">
         <SectionTitle kicker="Transparență" title="Ce include prețul unei terase circulabile" />
         <div className="grid gap-3">
