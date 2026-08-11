@@ -34,6 +34,10 @@ jobs:
           BASE_PATH: /${{ github.event.repository.name }}/
         run: bunx vite build --config vite.config.pages.ts
 
+      - name: Copy media assets into build output
+        run: node scripts/fetch-lovable-assets.mjs dist/client
+
+
       - name: Disable Jekyll + SPA fallback
         run: |
           touch dist/client/.nojekyll
