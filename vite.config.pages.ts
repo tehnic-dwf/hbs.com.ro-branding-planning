@@ -13,7 +13,7 @@ export default defineConfig({
       "import.meta.env.VITE_BASE_PATH": JSON.stringify(basePath),
     },
   },
-  nitro: { preset: "static" },
+  nitro: false,
   tanstackStart: {
     prerender: {
       enabled: true,
