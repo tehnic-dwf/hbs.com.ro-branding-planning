@@ -37,6 +37,12 @@ jobs:
       - name: Copy media assets into build output
         run: node scripts/fetch-lovable-assets.mjs dist/client
 
+      - name: Verify static media paths
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
+        run: |
+          test -f dist/client/__l5e/assets-v1/e8edd559-3107-4abe-8074-c9701ba404b6/reparatii-home-1.jpg
+          grep -R -q "${BASE_PATH}__l5e/assets-v1/" dist/client
 
       - name: Disable Jekyll + SPA fallback
         run: |
