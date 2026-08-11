@@ -10,7 +10,13 @@ import fundatieAsset from "@/assets/hidroizolatie-fundatie-bloc-001.jpg.asset.js
 
 type AssetPointer = { url: string };
 
-const url = (asset: unknown) => (asset as AssetPointer).url;
+// Pe GitHub Pages site-ul stă într-un subfolder, deci și fișierele media
+// (copiate în build) trebuie prefixate cu același base path.
+const basePath = (import.meta.env as Record<string, string | undefined>)["VITE_BASE_PATH"] || "/";
+
+const url = (asset: unknown) =>
+  basePath.replace(/\/$/, "") + (asset as AssetPointer).url;
+
 
 export const images = {
   logo: url(logoAsset),
