@@ -10,9 +10,9 @@ import fundatieAsset from "@/assets/hidroizolatie-fundatie-bloc-001.jpg.asset.js
 
 type AssetPointer = { url: string };
 
-// Pe GitHub Pages site-ul stă într-un subfolder, deci și fișierele media
-// (copiate în build) trebuie prefixate cu același base path.
-const basePath = (import.meta.env as Record<string, string | undefined>)["VITE_BASE_PATH"] || "/";
+// Vite injectează BASE_URL din opțiunea `base`; astfel imaginile păstrează
+// subfolderul repository-ului inclusiv în HTML-ul prerandat pentru Pages.
+const basePath = import.meta.env.BASE_URL || "/";
 
 const url = (asset: unknown) =>
   basePath.replace(/\/$/, "") + (asset as AssetPointer).url;
